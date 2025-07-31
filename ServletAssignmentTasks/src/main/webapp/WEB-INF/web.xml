@@ -1,0 +1,187 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Question1</servlet-name>
+  	<display-name>Question1</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.Question1</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InputServlet</servlet-name>
+  	<display-name>InputServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.InputServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>GradeServlet</servlet-name>
+  	<display-name>GradeServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.GradeServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProductServlet</servlet-name>
+  	<display-name>ProductServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.ProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<display-name>OrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.OrderServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>BalanceServlet</servlet-name>
+  	<display-name>BalanceServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.BalanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddToCartServlet</servlet-name>
+  	<display-name>AddToCartServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewCartServlet</servlet-name>
+  	<display-name>ViewCartServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.ViewCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>VendorServlet</servlet-name>
+  	<display-name>VendorServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.VendorServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddBookServlet</servlet-name>
+  	<display-name>AddBookServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.AddBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListBooksServlet</servlet-name>
+  	<display-name>ListBooksServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.ListBooksServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>DeleteBookServlet</servlet-name>
+  	<display-name>DeleteBookServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.DeleteBookServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>EditBookServlet</servlet-name>
+  	<display-name>EditBookServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.EditBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateBookServlet</servlet-name>
+  	<display-name>UpdateBookServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlettasks.UpdateBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Question1</servlet-name>
+  	<url-pattern>/Question1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>InputServlet</servlet-name>
+  	<url-pattern>/InputServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>GradeServlet</servlet-name>
+  	<url-pattern>/GradeServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ProductServlet</servlet-name>
+  	<url-pattern>/product</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<url-pattern>/order</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BalanceServlet</servlet-name>
+  	<url-pattern>/BalanceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddToCartServlet</servlet-name>
+  	<url-pattern>/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewCartServlet</servlet-name>
+  	<url-pattern>/ViewCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>VendorServlet</servlet-name>
+  	<url-pattern>/VendorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/signupvendor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddBookServlet</servlet-name>
+  	<url-pattern>/addBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListBooksServlet</servlet-name>
+  	<url-pattern>/listBooks</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteBookServlet</servlet-name>
+  	<url-pattern>/deleteBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditBookServlet</servlet-name>
+  	<url-pattern>/editBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateBookServlet</servlet-name>
+  	<url-pattern>/updateBook</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
