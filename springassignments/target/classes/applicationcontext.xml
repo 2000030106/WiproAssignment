@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       	xmlns:aop="http://www.springframework.org/schema/aop"
+       
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop.xsd">	
+           
+<context:property-placeholder location="classpath:account.properties,classpath:mydbconnection.properties,"/>
+
+           
+           
+    <bean id="bank" class="springprograms.Bank">
+        <constructor-arg value="101" />
+        <constructor-arg value="central Bank of India" />
+    </bean>
+
+    <bean id="account" class="springprograms.Account">
+        <constructor-arg value="491826345" />
+        <constructor-arg value="Satya Sai" />
+        <constructor-arg value="25000.75" />
+        <constructor-arg ref="bank" />
+    </bean>
+    
+    <context:annotation-config />
+    <context:component-scan base-package="springprograms"/>
+
+<!--     <bean id="freshman" class="springprograms.FreshMan">
+        <constructor-arg value="Satya"/>
+    </bean>
+ -->
+
+    <bean id="room1" class="springprograms.DormRoom">
+        <constructor-arg value="101"/>
+        <constructor-arg value="Vindhya Block"/>
+    </bean>
+
+    <bean id="room2" class="springprograms.DormRoom">
+        <constructor-arg value="202"/>
+        <constructor-arg value="Aravali Block"/>
+    </bean>
+
+
+    <bean id="account1" class="springprograms.Account1">
+        <property name="number" value="${account1.number}"/>
+        <property name="holder" value="${account1.holder}"/>
+        <property name="balance" value="${account1.balance}"/>
+        <property name="type" value="${account1.type}"/>
+    </bean>
+    
+    
+<bean id="dataSourceobj" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${mydriver}"/>
+        <property name="url" value="${mydb}"/>
+        <property name="username" value="${myusername}"/>
+        <property name="password" value="${mypassword}"/>
+    </bean>
+    
+    
+    <!-- JdbcTemplate class => built in property is dataSource -->
+    <bean id="jdbcTemplateobj" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSourceobj"/>
+    </bean>
+    
+
+    <!-- PersonDAO Bean -->
+    <bean id="personDAO" class="daofiles.PersonDAOImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplateobj" />
+    </bean>
+
+
+	<bean id="shoppingService" class="service.ShoppingService"/>
+
+    <bean id="loggingAspectobj" class="aopfiles.LoggingAspect"/>
+    
+    
+    <aop:config>
+    <aop:aspect ref="loggingAspectobj">
+        <aop:pointcut id="shoppingMethods" expression="execution(* service.ShoppingService.*(..))"/>
+        
+        <aop:before pointcut-ref="shoppingMethods" method="logBefore"/>
+        <aop:after-returning pointcut-ref="shoppingMethods" method="logAfterReturning" returning="result"/>
+        <aop:after-throwing pointcut-ref="shoppingMethods" method="logAfterThrowing" throwing="ex"/>
+        <aop:around method="logExecutionTime" pointcut-ref="shoppingMethods"/>
+    </aop:aspect>
+</aop:config>
+
+
+<bean id="product" class="springprograms.Product">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Mobile"/>
+        <constructor-arg value="25000.00"/>
+    </bean>
+    
+    <bean id="purchase" class="springprograms.Purchase" >
+        <constructor-arg value="1000"/>
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg ref="product"/>
+    </bean>
+
+
+
+
+
+<bean id="productDAO" class="com.dao.ProductDAOImpl">
+    <constructor-arg ref="jdbcTemplateobj"/>
+</bean>
+
+
+    <!-- ProductService with constructor injection -->
+    <bean id="productService" class="com.service.ProductService">
+        <constructor-arg ref="productDAO"/>
+    </bean>
+<context:component-scan base-package="com"/>
+
+
+
+</beans>
