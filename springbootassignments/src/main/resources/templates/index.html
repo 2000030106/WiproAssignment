@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Client List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>List of Clients</h2>
+    <a th:href="@{/showNewClientForm}" class="btn btn-primary mb-2">Add Client</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="client : ${listClients}">
+            <td th:text="${client.id}"></td>
+            <td th:text="${client.name}"></td>
+            <td th:text="${client.email}"></td>
+            <td th:text="${client.phone}"></td>
+            <td th:text="${client.address}"></td>
+            <td>
+                <a th:href="@{/showFormForUpdate/{id}(id=${client.id})}" class="btn btn-info btn-sm">Edit</a>
+                <a th:href="@{/deleteClient/{id}(id=${client.id})}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
