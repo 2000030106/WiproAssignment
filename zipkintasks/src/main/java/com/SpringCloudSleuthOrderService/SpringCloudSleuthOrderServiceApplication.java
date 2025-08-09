@@ -17,3 +17,4 @@ public class SpringCloudSleuthOrderServiceApplication {
 	        return new RestTemplate();
 	    }
 }
+
