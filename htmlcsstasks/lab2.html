@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Conference Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f0fe; 
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            margin: auto;
+            background: #daf484; 
+            border: 2px solid #444;
+            border-collapse: collapse;
+            width: 600px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        td {
+            padding: 8px;
+        }
+        td[colspan="2"] {
+            font-weight: bold;
+            color: #222;
+            font-size: 14px;
+            background-color: #f2f5ff; 
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 95%;
+            padding: 5px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        /* Color when typing */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            background-color: #fff9c4; 
+            border-color: #ff9800;
+            outline: none;
+        }
+        /* Color after typing */
+        input:valid,
+        select:valid,
+        textarea:valid {
+            background-color: #d4edda; 
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 6px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>ONLINE CONFERENCES REGISTRATION FORM</h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <table>
+           
+            <tr>
+                <td colspan="2">Personal Information</td>
+            </tr>
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" name="fullname" required></td>
+            </tr>
+            <tr>
+                <td>Email Address<br><small>format: user@example.com</small></td>
+                <td><input type="text" name="email" required></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select name="country" required>
+                        <option value="">--Select--</option>
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                        <option>Canada</option>
+                        <option>Australia</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Profile Photo Upload</td>
+                <td><input type="file" name="photo" required></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Account Preferences</td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="password" name="confirm_password" required></td>
+            </tr>
+            <tr>
+                <td>Interests</td>
+                <td>
+                    <input type="checkbox" name="interests" value="webdev"> Web Development
+                    <input type="checkbox" name="interests" value="ai"> AI
+                    <input type="checkbox" name="interests" value="cloud"> Cloud
+                </td>
+            </tr>
+            <tr>
+                <td>Preferred Contact Method</td>
+                <td>
+                    <input type="radio" name="contact" value="email"> Email
+                    <input type="radio" name="contact" value="phone"> Phone
+                </td>
+            </tr>
+            <tr>
+                <td>Special Requirements / Comments</td>
+                <td><textarea name="comments" rows="3" cols="30"></textarea></td>
+            </tr>
+
+            
+            <tr>
+                <td colspan="2">Payment Details</td>
+            </tr>
+            <tr>
+                <td>Payment Method</td>
+                <td>
+                    <select name="payment_method" required>
+                        <option value="">--Select--</option>
+                        <option>Credit Card</option>
+                        <option>Debit Card</option>
+                        <option>PayPal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Card Number</td>
+                <td><input type="text" name="card_number" required></td>
+            </tr>
+            <tr>
+                <td>Expiry Date</td>
+                <td>
+                    <select name="month" required>
+                        <option value="">Month</option>
+                        <option>01</option><option>02</option><option>03</option>
+                        <option>04</option><option>05</option><option>06</option>
+                        <option>07</option><option>08</option><option>09</option>
+                        <option>10</option><option>11</option><option>12</option>
+                    </select>
+                    <select name="year" required>
+                        <option value="">Year</option>
+                        <option>2025</option><option>2026</option><option>2027</option>
+                        <option>2028</option><option>2029</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>CVV</td>
+                <td><input type="password" name="cvv" size="3" required></td>
+            </tr>
+            <tr>
+                <td>Terms & Conditions</td>
+                <td><input type="checkbox" name="terms" required> I agree to Terms</td>
+            </tr>
+
+            
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

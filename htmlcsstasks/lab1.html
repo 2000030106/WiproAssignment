@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookWorld</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    header {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+        width: 150px;
+    }
+
+    h1 {
+        margin-top: 10px;
+        font-size: 28px;
+        color: #444;
+    }
+
+    p {
+        max-width: 600px;
+        margin: auto;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    table {
+        width: 60%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f0f0f0;
+    }
+
+    .lists {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px auto;
+        max-width: 800px;
+    }
+
+    .lists div:first-child ul {
+        list-style-type: decimal;
+    }
+
+    .lists div:last-child ul {
+        list-style-type: disc;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    
+    .preview-form {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 30px auto;
+    }
+
+    .preview {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .preview iframe {
+        width: 100%;
+        max-width: 500px;
+        aspect-ratio: 16 / 9;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    form {
+        flex: 1 1 40%;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    form h2 {
+        margin-top: 0;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form select,
+    form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    form textarea {
+        resize: vertical;
+    }
+
+    form button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    form button:hover {
+        background-color: #45a049;
+    }
+
+    
+    @media (max-width: 768px) {
+        .preview-form {
+            flex-direction: column;
+            align-items: center;
+        }
+        .preview, form {
+            width: 90%;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="booktop.png" alt="Books">
+    <h1>Welcome to BookWorld</h1>
+    <p>BookWorld is a premier online bookstore with a wide range of genres, secure shopping, and the best authors around.</p>
+</header>
+
+<section>
+    <h2 style="text-align:center;">Book Categories</h2>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Number of Books</th>
+            <th>Top Author</th>
+        </tr>
+        <tr>
+            <td>Fiction</td>
+            <td>2,345</td>
+            <td>J.K. Rowling</td>
+        </tr>
+        <tr>
+            <td>Non-Fiction</td>
+            <td>1,789</td>
+            <td>Malcolm Gladwell</td>
+        </tr>
+        <tr>
+            <td>Children's</td>
+            <td>1,234</td>
+            <td>Roald Dahl</td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>980</td>
+            <td>Stephen Hawking</td>
+        </tr>
+    </table>
+</section>
+
+<div class="lists">
+    <div>
+        <h3>Best-Sellers</h3>
+        <ul>
+            <li>The Great Gatsby</li>
+            <li>To Kill a Mockingbird</li>
+            <li>1984</li>
+            <li>The Catcher in the Rye</li>
+            <li>The Hobbit</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Upcoming Releases</h3>
+        <ul>
+            <li>The Midnight Library</li>
+            <li>Project Hail Mary</li>
+            <li>The Four Winds</li>
+            <li>Klara and the Sun</li>
+            <li>The Lincoln Highway</li>
+        </ul>
+    </div>
+</div>
+
+<div class="preview-form">
+    <div class="preview">
+        <h3>Book Preview</h3>
+        <iframe src="https://www.youtube.com/embed/SDnYMbYB-nU" frameborder="0" allowfullscreen></iframe>
+        <p>Watch our introduction to learn more about BookWorld!</p>
+    </div>
+    <form>
+        <h2>Newsletter Signup</h2>
+        <p>Subscribe to our Bookworld newsletter.</p>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="genre" required>
+            <option value="">Favorite Genre</option>
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Children's</option>
+            <option>Science</option>
+        </select>
+        <textarea name="comments" placeholder="Comments"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
