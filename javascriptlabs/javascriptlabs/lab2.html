@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+</head>
+<body>
+<script>
+    let fullName = prompt("Enter your full name:").trim();
+
+    let panNumber = prompt("Enter your PAN number (10 characters):").trim().toUpperCase();
+    if (panNumber.length !== 10) {
+        alert("❌ Invalid PAN Number! Must be exactly 10 characters.");
+        throw new Error("Invalid PAN Number");
+    }
+
+    let dobInput = prompt("Enter your Date of Birth (YYYY-MM-DD):");
+    let dob = new Date(dobInput);
+
+    if (isNaN(dob.getTime())) {
+        alert("❌ Invalid Date of Birth format!");
+        throw new Error("Invalid Date");
+    }
+
+    let annualIncome = parseFloat(prompt("Enter your Annual Income in ₹:"));
+
+    if (isNaN(annualIncome) || annualIncome < 0) {
+        alert("❌ Invalid Income!");
+        throw new Error("Invalid Income");
+    }
+
+    let today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    let monthDiff = today.getMonth() - dob.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+    }
+
+    let tax = 0;
+    if (annualIncome <= 250000) {
+        tax = 0;
+    } else if (annualIncome <= 500000) {
+        tax = (annualIncome - 250000) * 0.05;
+    } else if (annualIncome <= 1000000) {
+        tax = (250000 * 0.05) + (annualIncome - 500000) * 0.20;
+    } else {
+        tax = (250000 * 0.05) + (500000 * 0.20) + (annualIncome - 1000000) * 0.30;
+    }
+
+    tax = Math.round(tax);
+
+    let output = 
+        "Name: " + fullName.toUpperCase() + "\n" +
+        "PAN: " + panNumber + "\n" +
+        "Age: " + age + " years\n" +
+        "Annual Income: ₹ " + annualIncome.toLocaleString() + "\n" +
+        "Calculated Tax: ₹ " + tax.toLocaleString();
+
+    alert(output);
+</script>
+</body>
+</html>

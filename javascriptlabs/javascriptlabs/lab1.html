@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+</head>
+<body>
+    <script>
+        alert("Welcome to the Quiz Game!");
+
+        let userName = prompt("What's your name?");
+        
+        if (!userName) {
+            userName = "Player"; 
+        }
+
+        let isReady = confirm(userName + ", are you ready for the quiz?");
+
+        if (isReady) {
+            let answer = prompt(
+                "Which planet is known as the Red Planet?\n" +
+                "A: Earth\n" +
+                "B: Mars\n" +
+                "C: Jupiter\n" +
+                "D: Venus"
+            );
+
+            if (answer && answer.toLowerCase() === "b") {
+                alert("🎉 Correct! Well done, " + userName + "!");
+            } else {
+                alert("❌ Oops! The correct answer is B: Mars.");
+            }
+        } else {
+            alert("Okay " + userName + ", maybe next time!");
+        }
+    </script>
+</body>
+</html>

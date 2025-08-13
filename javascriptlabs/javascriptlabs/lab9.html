@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income Tax Calculator (Multiple Callbacks)</title>
+</head>
+<body>
+    <h1>Income Tax Calculator</h1>
+
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>PAN:</label>
+    <input type="text" id="pan"><br><br>
+
+    <label>Annual Income:</label>
+    <input type="number" id="income"><br><br>
+
+    <button onclick="startCalculation()">Calculate Tax</button>
+
+    <h2>Result:</h2>
+    <div id="result"></div>
+
+    <script>
+        let taxRecords = [];
+
+        function calculateTax(name, pan, income, callback) {
+            let tax = 0;
+
+            // Simple slab calculation
+            if (income <= 250000) {
+                tax = 0;
+            } else if (income <= 500000) {
+                tax = (income - 250000) * 0.05;
+            } else if (income <= 1000000) {
+                tax = (250000 * 0.05) + (income - 500000) * 0.2;
+            } else {
+                tax = (250000 * 0.05) + (500000 * 0.2) + (income - 1000000) * 0.3;
+            }
+
+            callback({ name, pan, income, tax });
+        }
+
+        function logToConsole(details) {
+            console.log(`Name: ${details.name}`);
+            console.log(`PAN: ${details.pan}`);
+            console.log(`Annual Income: ₹ ${details.income}`);
+            console.log(`Calculated Tax: ₹ ${details.tax}`);
+        }
+
+        function displayOnPage(details) {
+            document.getElementById("result").innerHTML = `
+                <strong>Name:</strong> ${details.name} <br>
+                <strong>PAN:</strong> ${details.pan} <br>
+                <strong>Annual Income:</strong> ₹ ${details.income} <br>
+                <strong>Calculated Tax:</strong> ₹ ${details.tax}
+            `;
+        }
+
+        function saveToRecords(details) {
+            taxRecords.push(details);
+            console.log("Tax Records:", taxRecords);
+        }
+
+        function startCalculation() {
+            let name = document.getElementById("name").value;
+            let pan = document.getElementById("pan").value;
+            let income = parseFloat(document.getElementById("income").value);
+
+            calculateTax(name, pan, income, function(details) {
+                logToConsole(details);
+                displayOnPage(details);
+                saveToRecords(details);
+            });
+        }
+    </script>
+</body>
+</html>
