@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory IIFE with User Input</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 20px;
+            background-color: #39b8e6;
+            color: #333;
+        }
+
+        h1 {
+            color: #e97a19;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #e91010;
+        }
+
+        pre {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #44d219;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.05);
+            max-width: 500px;
+            margin: 20px auto;
+            white-space: pre-wrap;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ef0d0d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Inventory Management</h1>
+    <p> IIFE to manage product stock..</p>
+    
+    <pre id="output"></pre>
+    <p class="note">💡 Refresh the page to try again with different values.</p>
+
+    <script>
+        (function() {
+            let productStock = 0;
+            const outputElement = document.getElementById('output');
+
+            function logToOutput(message) {
+                outputElement.textContent += message + '\n\n';
+            }
+
+            function getStock() {
+                return productStock;
+            }
+
+            function addStock(quantity) {
+                productStock += quantity;
+            }
+
+            function sell(quantity) {
+                if (productStock >= quantity) {
+                    productStock -= quantity;
+                    logToOutput(`✅ Sold ${quantity} items.`);
+                } else {
+                    logToOutput("⚠️ Insufficient stock.");
+                }
+            }
+
+            const itemsToAdd = prompt("Enter the number of items to add to stock:");
+            const addQuantity = parseInt(itemsToAdd);
+
+            if (!isNaN(addQuantity) && addQuantity > 0) {
+                addStock(addQuantity);
+                logToOutput(`📦 Stock after adding: ${getStock()}`);
+            } else {
+                logToOutput("⚠️ Invalid input for adding stock. No items were added.");
+            }
+
+            const itemsToSell = prompt("Enter the number of items to sell:");
+            const sellQuantity = parseInt(itemsToSell);
+
+            if (!isNaN(sellQuantity) && sellQuantity > 0) {
+                sell(sellQuantity);
+            } else {
+                logToOutput("⚠️ Invalid input for selling items. No items were sold.");
+            }
+
+            logToOutput(`📊 Stock remaining: ${getStock()}`);
+        })();
+    </script>
+</body>
+</html>
