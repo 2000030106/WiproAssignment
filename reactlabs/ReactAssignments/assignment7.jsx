@@ -1,6 +1,6 @@
 import React from "react";
-
-const Juice = ({ id, name, price }) => {
+// Functional component with props
+const Juice = ({ id, name, price }) => {//Props Destructuring
   return (
     <tr>
       <td>{id}</td>

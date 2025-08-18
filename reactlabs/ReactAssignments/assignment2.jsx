@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
+//this is class component is created , we will extends component for car class
 class Car extends Component {
-  render() {
-    const { brand, model, color, year } = this.props;
+  render() { // this is a react class component 
+    const { brand, model, color, year } = this.props; // this destructuring using props to receive values
 
     return (
       <div>
@@ -16,4 +17,4 @@ class Car extends Component {
   }
 }
 
-export default Car;
+export default Car; // this is used to import this component in another files 

@@ -1,3 +1,5 @@
+
+//this ia array of json objects 
 const services = [
   {
     serviceName: 'Shirt',
@@ -21,9 +23,12 @@ const services = [
   },
 ];
 
+//this is functional component
 export const TailorShop = () => {
   let output = '';
+//Template Literals → using backticks (...) for string interpolation.
 
+//Functions for borders (dottedLine()) and dynamic width calculation.
   const dottedLine = (length) => '+ ' + '- '.repeat(length / 2) + '+';
 
   const colWidths = [12, 17, 17];
@@ -34,15 +39,20 @@ export const TailorShop = () => {
   const headerPadding = (totalWidth - headerText.length) / 2;
   output += `|${' '.repeat(Math.floor(headerPadding))}${headerText}${' '.repeat(Math.ceil(headerPadding))}|\n`;
   output += dottedLine(totalWidth) + '\n';
-
+//.padEnd() for aligned table formatting.
   const serviceNames = services.slice(0, 3).map(s => s.serviceName);
   output += `| ${serviceNames[0].padEnd(colWidths[0])} | ${serviceNames[1].padEnd(colWidths[1])} | ${serviceNames[2].padEnd(colWidths[2])} |\n`;
   output += `+${'-'.repeat(colWidths[0] + 2)}+${'-'.repeat(colWidths[1] + 2)}+${'-'.repeat(colWidths[2] + 2)}+\n`;
 
+  //.map() for extracting serviceName, fabricsAvailable.
+  //.slice() to split Shirt, Pants, Lehenga vs. Blouse.
+  //Math.max(...map()) to find max fabrics length.
   let maxFabrics = Math.max(...services.slice(0, 3).map(s => s.fabricsAvailable.length));
 
   output += `| Price: $${services[0].price.toString().padEnd(colWidths[0]-7)} | Price: $${services[1].price.toString().padEnd(colWidths[1]-7)} | Price: $${services[2].price.toString().padEnd(colWidths[2]-7)} |\n`;
   output += `| Fabrics:    | Fabrics:         | Fabrics:        |\n`;
+  //for loop () to print fabrics for Blouse.
+
   for (let i = 0; i < maxFabrics; i++) {
     const shirtFabric = services[0].fabricsAvailable[i] || '';
     const pantsFabric = services[1].fabricsAvailable[i] || '';
@@ -51,6 +61,7 @@ export const TailorShop = () => {
   }
   output += `+${'-'.repeat(colWidths[0] + 2)}+${'-'.repeat(colWidths[1] + 2)}+${'-'.repeat(colWidths[2] + 2)}+\n`;
 
+  //here we are taking array of 3 objects 
   const blouse = services[3];
   output += `| ${blouse.serviceName.padEnd(colWidths[0])} |\n`;
   output += `+${'-'.repeat(colWidths[0] + 2)}+\n`;
@@ -61,6 +72,7 @@ export const TailorShop = () => {
   });
   output += `+${'-'.repeat(colWidths[0] + 2)}+\n`;
 
+  //Wrapping plain string output inside <pre>{output}</pre> to preserve formatting.
   return <pre>{output}</pre>;
 };
 
