@@ -15,6 +15,16 @@ import Restaurant from './ReactAssignments/assignment8.1';
 import TempleList from './ReactAssignments/assignment9';
 import TailorShop from './ReactAssignments/assignment10.1';
 import TailorShop1 from './ReactAssignments/assignment10boot';
+
+import Fruits from './aug18assignments/FruitList';
+import TelevisionManager from './aug18assignments/Television';
+import MarriageForm from './aug18assignments/MarriageForm';
+import AccessoriesForm from './aug18assignments/AccessoriesForm';
+import BakingItemsForm from './aug18assignments/BakingForm';
+import FlightBookingControlled from './aug18assignments/FlightControlledForm';
+import FlightBookingUncontrolled from './aug18assignments/FlightUncontrolledForm';
+import MovieForm from './aug18assignments/MovieForm';
+
 function App() {
   //assignment-1
   const groceries = ["Rice", "Wheat", "Sugar", "Milk", "Oil"];
@@ -33,6 +43,12 @@ function App() {
   //assignment-8 restaurant menu
 
   //assignment-9 temple list
+
+  //assignment 10 tailor shop
+
+  // 18 aug assignments
+
+  
   return (
     <div className="App">
       
@@ -57,6 +73,24 @@ function App() {
       <TailorShop />
 
       <TailorShop1 />
+
+      {/* 18 aug Tasks */}
+
+      <Fruits />
+
+       <TelevisionManager />
+
+      <MarriageForm />
+
+     <AccessoriesForm />
+
+       <BakingItemsForm />
+
+     <FlightBookingControlled />
+
+      <FlightBookingUncontrolled />
+
+       <MovieForm /> 
     </div>
   );
 }
